@@ -1,0 +1,23 @@
+# Usa un'immagine Python ufficiale e leggera come base
+FROM python:3.9-slim
+
+# Imposta la variabile d'ambiente per la cache dei modelli.
+# La libreria sentence-transformers la userà automaticamente.
+# Questo percorso deve corrispondere al volume emptyDir su OpenShift.
+ENV TRANSFORMERS_CACHE="./model_cache"
+
+# Imposta la cartella di lavoro all'interno del container
+WORKDIR /app
+
+# Copia e installa le dipendenze
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copia il codice dell'applicazione per l'embedding
+COPY embed_app.py .
+
+# Esponi la porta su cui il server Gunicorn ascolterà
+EXPOSE 8080
+
+# Comando per avviare l'applicazione con Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "2", "--timeout", "120", "app:app"]

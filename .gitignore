@@ -1,0 +1,16 @@
+venv/
+model_cache/
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+db.sqlite3
+*.db
+*.sqlite3
+*.log
+*.pot
+*.mo
+*.pyc
+*.pyo
+.DS_Store

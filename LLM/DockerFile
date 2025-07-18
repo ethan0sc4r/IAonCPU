@@ -1,0 +1,25 @@
+# Usa un'immagine Python ufficiale e leggera come base
+FROM python:3.9-slim
+
+# Imposta la cartella di lavoro all'interno del container
+WORKDIR /app
+
+# Copia e installa le dipendenze per sfruttare la cache di Docker
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copia lo script della tua applicazione
+COPY app.py .
+
+# Crea la cartella che useremo come "mount point" per il volume emptyDir.
+# Questa cartella nell'immagine sarà vuota, ma servirà come punto di aggancio
+# per la cartella scrivibile fornita da OpenShift.
+RUN mkdir /model_cache
+
+# Esponi la porta su cui il server Gunicorn ascolterà
+EXPOSE 8080
+
+# Comando per avviare l'applicazione in modo robusto con Gunicorn.
+# --workers 1 è una scelta sicura per un'app che carica un modello pesante in memoria.
+# --timeout 120 dà al worker tempo sufficiente per caricare il modello all'avvio.
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "1", "--timeout", "120", "app:app"]
