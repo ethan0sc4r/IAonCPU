@@ -1,5 +1,5 @@
 # Usa un'immagine Python ufficiale e leggera come base
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 # Imposta la cartella di lavoro all'interno del container
 WORKDIR /app
