@@ -14,7 +14,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia il codice dell'applicazione per l'embedding
-COPY embed_app.py .
+COPY app.py .
 
 # Esponi la porta su cui il server Gunicorn ascolterà
 EXPOSE 8080
