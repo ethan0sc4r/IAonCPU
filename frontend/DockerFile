@@ -13,7 +13,7 @@ COPY ui.py .
 
 # Streamlit, per convenzione, usa la porta 8501
 EXPOSE 8501
-
+ 
 # Comando specifico per avviare un'applicazione Streamlit
 # --server.address=0.0.0.0 permette di accedere al container dall'esterno
 CMD ["streamlit", "run", "ui.py", "--server.port=8501", "--server.address=0.0.0.0"]

@@ -9,7 +9,7 @@ import io
 # 1. INIZIALIZZAZIONE DELL'APPLICAZIONE E DEL MODELLO
 # -----------------------------------------------------------------------------
 app = Flask(__name__)
-
+ 
 # Definiamo il percorso che useremo per la cache del modello.
 # Questo percorso deve corrispondere al volume emptyDir che configurerai su OpenShift.
 MODEL_CACHE_PATH = "./model_cache"

@@ -5,7 +5,7 @@ import os
 # --- 1. CONFIGURAZIONE ---
 # Legge l'URL dell'API Orchestrator da una variabile d'ambiente per flessibilità in OpenShift
 ORCHESTRATOR_API_URL = os.getenv("ORCHESTRATOR_API_URL", "http://127.0.0.1:8080")
-
+  
 # Imposta la configurazione della pagina Streamlit
 st.set_page_config(page_title="Chat RAG", layout="wide")
 st.title("📄 Chat RAG con i Tuoi Documenti")

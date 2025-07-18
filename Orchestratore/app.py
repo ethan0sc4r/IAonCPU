@@ -29,7 +29,7 @@ COLLECTION_NAME = "rag_session_collection"
 # Perfetto per sessioni di chat singole con un solo documento.
 print("Inizializzazione di ChromaDB in-memory...")
 chroma_client = chromadb.Client()
-
+  
 # Per assicurare che ogni sessione parta da zero, tentiamo di eliminare la collection
 # precedente all'avvio e ne creiamo una nuova, vuota.
 try:
