@@ -16,7 +16,7 @@ app.config['JSON_AS_ASCII'] = False
 # 2. CARICAMENTO DEL MODELLO GGUF
 # -----------------------------------------------------------------------------
 # Definiamo il percorso della cache che corrisponderà al volume emptyDir su OpenShift
-MODEL_CACHE_PATH = "./model_cache"
+MODEL_CACHE_PATH = "/app/model_cache"
 os.environ['HF_HOME'] = MODEL_CACHE_PATH
 os.environ['HUGGINGFACE_HUB_CACHE'] = MODEL_CACHE_PATH
 os.environ['HF_HUB_CACHE'] = MODEL_CACHE_PATH
