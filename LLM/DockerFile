@@ -22,4 +22,4 @@ EXPOSE 8080
 # Comando per avviare l'applicazione in modo robusto con Gunicorn.
 # --workers 1 è una scelta sicura per un'app che carica un modello pesante in memoria.
 # --timeout 120 dà al worker tempo sufficiente per caricare il modello all'avvio.
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "1", "--timeout", "120", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "1", "--timeout", "1200", "app:app"]
