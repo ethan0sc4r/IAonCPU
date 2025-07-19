@@ -1,9 +1,9 @@
 # Usa la stessa immagine Python di base per coerenza
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 # Imposta la cartella di lavoro
 WORKDIR /app
-
+RUN apt-get update && apt-get install -y nano
 # Copia e installa le dipendenze
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
