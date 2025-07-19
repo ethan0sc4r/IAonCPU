@@ -121,7 +121,7 @@ def chat():
         # -------------------------------------------------------------------
 
         llm_payload = {"messages": final_messages, "max_tokens": max_tokens}
-        llm_response = requests.post(LLM_API_URL, json=llm_payload)
+        llm_response = requests.post(LLM_API_URL, json=llm_payload, timeout=300)
         llm_response.raise_for_status()
         
         return jsonify(llm_response.json())
