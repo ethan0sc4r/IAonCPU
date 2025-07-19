@@ -10,7 +10,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia lo script della tua applicazione
 COPY app.py .
-
+RUN chmod -R 777 /app
 # Crea la cartella che useremo come "mount point" per il volume emptyDir.
 # Questa cartella nell'immagine sarà vuota, ma servirà come punto di aggancio
 # per la cartella scrivibile fornita da OpenShift.
