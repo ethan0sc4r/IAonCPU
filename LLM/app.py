@@ -22,7 +22,7 @@ os.environ['HUGGINGFACE_HUB_CACHE'] = MODEL_CACHE_PATH
 os.environ['HF_HUB_CACHE'] = MODEL_CACHE_PATH
 # Leggiamo il token di Hugging Face dalla variabile d'ambiente.
 # Questo è il modo sicuro e corretto per gestire le credenziali in un container.
-hf_token = ""
+hf_token = os.getenv("HUGGING_FACE_HUB_TOKEN")
 if not hf_token:
     print("ATTENZIONE: La variabile d'ambiente HUGGING_FACE_HUB_TOKEN non è stata trovata.")
 
