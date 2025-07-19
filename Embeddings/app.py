@@ -12,7 +12,7 @@ app = Flask(__name__)
  
 # Definiamo il percorso che useremo per la cache del modello.
 # Questo percorso deve corrispondere al volume emptyDir che configurerai su OpenShift.
-MODEL_CACHE_PATH = "./model_cache"
+MODEL_CACHE_PATH = "/app//model_cache"
 
 # Carica il modello CLIP, specificando esplicitamente la cartella della cache.
 # Questa operazione scaricherà il modello la prima volta e verrà eseguita

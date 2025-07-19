@@ -1,11 +1,11 @@
 # Usa un'immagine Python ufficiale e leggera come base
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 # Imposta la variabile d'ambiente per la cache dei modelli.
 # La libreria sentence-transformers la userà automaticamente.
 # Questo percorso deve corrispondere al volume emptyDir su OpenShift.
-ENV TRANSFORMERS_CACHE="./model_cache"
-
+ENV TRANSFORMERS_CACHE="/app/model_cache"
+RUN apt-get update && apt-get install -y build-essential cmake nano
 # Imposta la cartella di lavoro all'interno del container
 WORKDIR /app
 
