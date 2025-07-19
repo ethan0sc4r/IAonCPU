@@ -14,7 +14,7 @@ COPY app.py .
 # Crea la cartella che useremo come "mount point" per il volume emptyDir.
 # Questa cartella nell'immagine sarà vuota, ma servirà come punto di aggancio
 # per la cartella scrivibile fornita da OpenShift.
-RUN mkdir /model_cache
+RUN mkdir ./model_cache
 
 # Esponi la porta su cui il server Gunicorn ascolterà
 EXPOSE 8080
