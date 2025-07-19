@@ -17,7 +17,9 @@ app.config['JSON_AS_ASCII'] = False
 # -----------------------------------------------------------------------------
 # Definiamo il percorso della cache che corrisponderà al volume emptyDir su OpenShift
 MODEL_CACHE_PATH = "./model_cache"
-
+os.environ['HF_HOME'] = MODEL_CACHE_PATH
+os.environ['HUGGINGFACE_HUB_CACHE'] = MODEL_CACHE_PATH
+os.environ['HF_HUB_CACHE'] = MODEL_CACHE_PATH
 # Leggiamo il token di Hugging Face dalla variabile d'ambiente.
 # Questo è il modo sicuro e corretto per gestire le credenziali in un container.
 hf_token = ""
